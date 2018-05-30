@@ -3,10 +3,12 @@
     "composer": "^0.19.6"
   },
   "name": "team2",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Mitarbeiterbeteiligung",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/team2.bna",
+    "netinstall": "composer network install --card PeerAdmin@hlfv1 --archiveFile ./dist/team2.bna",
+    "netupgrade": "composer network upgrade -c PeerAdmin@hlfv1 -n team2 -V",
     "pretest": "npm run lint",
     "lint": "eslint .",
     "test": "nyc mocha -t 0 test/*.js && cucumber-js"
